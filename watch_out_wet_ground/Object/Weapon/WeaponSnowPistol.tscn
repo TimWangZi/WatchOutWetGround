@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://duh085t6uvdti"]
+
+[ext_resource type="Script" uid="uid://b6w0pixxxvdin" path="res://Script/Weapon/snow_pistol.gd" id="1_co3jw"]
+[ext_resource type="Texture2D" uid="uid://ctnqfk6r4451d" path="res://Asset/Weapon/SnowPistol.png" id="2_v2voq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_308uy"]
+radius = 7.0
+
+[node name="SnowPistol" type="Area2D"]
+script = ExtResource("1_co3jw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 1)
+shape = SubResource("CircleShape2D_308uy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(5, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_v2voq")
+
+[connection signal="body_entered" from="." to="." method="area_triggered"]

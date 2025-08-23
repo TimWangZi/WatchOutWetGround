@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://byti1hjbrr5j6" path="res://Asset/Player/main_player_HIT.png" id="1_3j2k1"]
 [ext_resource type="Texture2D" uid="uid://cpeultfbsb052" path="res://Asset/Player/main_player_IDLE1.png" id="1_7ftj1"]
-[ext_resource type="Script" uid="uid://bg3eq410apw8y" path="res://Object/Player/main_player.gd" id="1_w5edy"]
+[ext_resource type="Script" uid="uid://bg3eq410apw8y" path="res://Script/Player/main_player.gd" id="1_w5edy"]
 [ext_resource type="Texture2D" uid="uid://btdkyvx06vyvp" path="res://Asset/Player/main_player_IDLE2.png" id="2_3j2k1"]
 [ext_resource type="Texture2D" uid="uid://lwlm2yo6g0jk" path="res://Asset/Player/main_player_IDLE3.png" id="3_w5edy"]
 [ext_resource type="Texture2D" uid="uid://do3rjoiv8vvfo" path="res://Asset/Player/main_player_MOVE1.png" id="6_w5edy"]
@@ -90,3 +90,11 @@ shape = SubResource("CapsuleShape2D_3rn6h")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_jrffh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1, -8.45)
+zoom = Vector2(5.225, 5.225)
+position_smoothing_enabled = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 3)

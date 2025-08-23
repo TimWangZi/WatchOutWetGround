@@ -32,3 +32,14 @@ func _process(delta):
 		add_constant_force(force) # 向刚体施加力
 	else:
 		constant_force = Vector2.ZERO # 清空物体的力
+
+func pick_up_weapon(weapon):
+	#if Input.is_action_pressed("player_pick_up"):
+	var weapons_already_had = $Marker2D.get_children()
+	if weapons_already_had.size() == 0:
+		weapon.call_deferred("reparent",$Marker2D,false)
+		weapon.scale = Vector2(1.2 ,1.2)
+		#weapon.reparent($Marker2D)
+		weapon.position = Vector2.ZERO
+		#print(weapon.position)
+		weapon.is_picked = true

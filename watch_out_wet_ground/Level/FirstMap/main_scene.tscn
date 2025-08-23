@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ggdpolx3xvod"]
+[gd_scene load_steps=4 format=3 uid="uid://ggdpolx3xvod"]
 
 [ext_resource type="PackedScene" uid="uid://dyvh5c45ewut3" path="res://Object/Player/Player.tscn" id="1_f46yf"]
 [ext_resource type="Texture2D" uid="uid://beq2lw3qxf1ti" path="res://icon.svg" id="2_j7m7d"]
+[ext_resource type="PackedScene" uid="uid://duh085t6uvdti" path="res://Object/Weapon/WeaponSnowPistol.tscn" id="3_j7m7d"]
 
 [node name="MainScene" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_f46yf")]
-position = Vector2(36, 40)
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(217, 182)
 texture = ExtResource("2_j7m7d")
+
+[node name="Player" parent="." instance=ExtResource("1_f46yf")]
+position = Vector2(36, 40)
+
+[node name="WeaponSnowPistol" parent="." instance=ExtResource("3_j7m7d")]
+position = Vector2(103, 86)
