@@ -27,3 +27,11 @@ func pick_up(parent:Node ,parent_name ,scale = 1.2):
 	is_picked = true
 	get_node("CollisionShape2D").set_deferred("disabled" ,true)
 	owner_name = parent_name
+
+func find_player(node):
+	if node.is_in_group("Player") and node.weapon_on_ground == null:
+		node.weapon_on_ground = self
+
+func lost_player(node):
+	if node.is_in_group("Player"):
+		node.weapon_on_ground = null

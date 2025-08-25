@@ -44,13 +44,3 @@ func _input(event):
 func hitted(momentum:float ,add_linear_velocity:Vector2):
 	add_linear_velocity = add_linear_velocity.normalized() * momentum # 这边可以写一点减少动量的道具代码
 	linear_velocity += add_linear_velocity
-
-func weapon_entered(node):
-	if node.is_in_group("Weapon"):
-		print("test")
-		weapon_on_ground = node
-
-func weapon_exited(node):
-	
-	if node.is_in_group("Weapon") and node.name == weapon_on_ground.name:
-		weapon_on_ground = null

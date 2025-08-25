@@ -22,3 +22,6 @@ texture = ExtResource("2_v2voq")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(9, 0)
+
+[connection signal="body_entered" from="." to="." method="find_player"]
+[connection signal="body_exited" from="." to="." method="lost_player"]
