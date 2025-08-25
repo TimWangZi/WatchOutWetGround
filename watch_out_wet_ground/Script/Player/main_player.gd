@@ -51,5 +51,6 @@ func weapon_entered(node):
 		weapon_on_ground = node
 
 func weapon_exited(node):
+	
 	if node.is_in_group("Weapon") and node.name == weapon_on_ground.name:
 		weapon_on_ground = null
