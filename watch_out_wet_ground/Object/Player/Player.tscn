@@ -69,7 +69,9 @@ properties/4/path = NodePath(".:constant_force")
 properties/4/spawn = true
 properties/4/replication_mode = 2
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 3
 gravity_scale = 0.0
 lock_rotation = true
 continuous_cd = 2

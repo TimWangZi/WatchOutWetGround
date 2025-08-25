@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://i0pka0jv3cpl"]
+
+[ext_resource type="Script" uid="uid://87hp7kv1d0x3" path="res://Script/Player/bot.gd" id="1_p8hb8"]
+[ext_resource type="Texture2D" uid="uid://byti1hjbrr5j6" path="res://Asset/Player/main_player_HIT.png" id="2_gm6ef"]
+[ext_resource type="Texture2D" uid="uid://cpeultfbsb052" path="res://Asset/Player/main_player_IDLE1.png" id="3_3lpp4"]
+[ext_resource type="Texture2D" uid="uid://btdkyvx06vyvp" path="res://Asset/Player/main_player_IDLE2.png" id="4_c66he"]
+[ext_resource type="Texture2D" uid="uid://lwlm2yo6g0jk" path="res://Asset/Player/main_player_IDLE3.png" id="5_m0g3j"]
+[ext_resource type="Texture2D" uid="uid://do3rjoiv8vvfo" path="res://Asset/Player/main_player_MOVE1.png" id="6_d0nv4"]
+[ext_resource type="Texture2D" uid="uid://d1yv1j8lgs5ug" path="res://Asset/Player/main_player_MOVE2.png" id="7_dh737"]
+[ext_resource type="Texture2D" uid="uid://bggah17svnl86" path="res://Asset/Player/main_player_MOVE3.png" id="8_jiela"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blaqn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gm6ef")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3lpp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c66he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_m0g3j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_d0nv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dh737")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jiela")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i2fu4"]
+radius = 6.0
+height = 20.0
+
+[node name="Bot" type="RigidBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 3
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+script = ExtResource("1_p8hb8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_blaqn")
+animation = &"move"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_i2fu4")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 3)

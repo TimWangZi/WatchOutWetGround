@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ggdpolx3xvod"]
+[gd_scene load_steps=5 format=3 uid="uid://ggdpolx3xvod"]
 
 [ext_resource type="PackedScene" uid="uid://dyvh5c45ewut3" path="res://Object/Player/Player.tscn" id="1_f46yf"]
 [ext_resource type="Texture2D" uid="uid://beq2lw3qxf1ti" path="res://icon.svg" id="2_j7m7d"]
 [ext_resource type="PackedScene" uid="uid://duh085t6uvdti" path="res://Object/Weapon/WeaponSnowPistol.tscn" id="3_j7m7d"]
+[ext_resource type="PackedScene" uid="uid://i0pka0jv3cpl" path="res://Object/Player/Bot.tscn" id="4_ta6on"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -15,3 +16,7 @@ position = Vector2(36, 40)
 
 [node name="WeaponSnowPistol" parent="." instance=ExtResource("3_j7m7d")]
 position = Vector2(103, 86)
+is_picked = null
+shoot_momentum = null
+
+[node name="Bot" parent="." instance=ExtResource("4_ta6on")]

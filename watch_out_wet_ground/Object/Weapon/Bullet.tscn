@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://wd8qh1u54tuc"]
+
+[ext_resource type="Script" uid="uid://bqds4l60802p3" path="res://Object/Weapon/bullet.gd" id="1_3tdjf"]
+[ext_resource type="Texture2D" uid="uid://brs1sb633y7gb" path="res://Asset/Weapon/SnowBall_Mealt_0001.png" id="2_vq12u"]
+[ext_resource type="Texture2D" uid="uid://cdw72syxhgvfo" path="res://Asset/Weapon/SnowBall_Mealt_0002.png" id="3_tnf5q"]
+[ext_resource type="Texture2D" uid="uid://cxbqkj0aqfuqa" path="res://Asset/Weapon/SnowBall_Mealt_0003.png" id="4_0ymog"]
+[ext_resource type="Texture2D" uid="uid://lhehs85s2dkr" path="res://Asset/Weapon/SnowBall_Mealt_0004.png" id="5_ek2su"]
+[ext_resource type="Texture2D" uid="uid://c8yaiy4wvhk1t" path="res://Asset/Weapon/SnowBall_Mealt_0005.png" id="6_nxhgl"]
+[ext_resource type="Texture2D" uid="uid://c4d7a7nj3kjxa" path="res://Asset/Weapon/SnowBall_Mealt_0006.png" id="7_aa74a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3b3lb"]
+radius = 7.07107
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ie1a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vq12u")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vq12u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tnf5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0ymog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ek2su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nxhgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_aa74a")
+}],
+"loop": false,
+"name": &"mealt",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_3tdjf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3b3lb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0ie1a")
+animation = &"mealt"
+
+[connection signal="body_entered" from="." to="." method="on_hit_player"]
