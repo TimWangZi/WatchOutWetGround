@@ -3,6 +3,7 @@ extends RigidBody2D
 @export var FORCE_LEN = 1.0 # 当按下键盘上的按键时，对玩家施加力的大小
 var flip_or_not = false
 var animate_sprite:AnimatedSprite2D
+var weapon_on_ground = null
 
 func _ready():
 	animate_sprite = $AnimatedSprite2D
@@ -33,22 +34,22 @@ func _process(delta):
 	else:
 		constant_force = Vector2.ZERO # 清空物体的力
 
-func pick_up_weapon(weapon):
-	#if Input.is_action_pressed("player_pick_up"):
-	var weapons_already_had = $Marker2D.get_children()
-	if weapons_already_had.size() == 0:
-		weapon.call_deferred("reparent",$Marker2D,false)
-		weapon.scale = Vector2(1.2 ,1.2)
-		#weapon.reparent($Marker2D)
-		weapon.position = Vector2.ZERO
-		#print(weapon.position)
-		weapon.is_picked = true
-		weapon.get_node("CollisionShape2D").set_deferred("disabled" ,true)
-		weapon.owner_name = name
+
+func _input(event):
+	if event.is_action_pressed("player_pick_up") and weapon_on_ground != null:
+		var weapons_already_had = $Marker2D.get_children()
+		if weapons_already_had.size() == 0:
+			weapon_on_ground.pick_up(self ,name)
 
 func hitted(momentum:float ,add_linear_velocity:Vector2):
 	add_linear_velocity = add_linear_velocity.normalized() * momentum # 这边可以写一点减少动量的道具代码
 	linear_velocity += add_linear_velocity
 
 func weapon_entered(node):
-	
+	if node.is_in_group("Weapon"):
+		print("test")
+		weapon_on_ground = node
+
+func weapon_exited(node):
+	if node.is_in_group("Weapon") and node.name == weapon_on_ground.name:
+		weapon_on_ground = null

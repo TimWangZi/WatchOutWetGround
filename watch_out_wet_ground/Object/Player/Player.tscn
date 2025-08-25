@@ -69,7 +69,7 @@ properties/4/path = NodePath(".:constant_force")
 properties/4/spawn = true
 properties/4/replication_mode = 2
 
-[node name="Player" type="RigidBody2D" groups=["Player"]]
+[node name="Player" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 3
 gravity_scale = 0.0
@@ -100,3 +100,5 @@ position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 3)
+
+[connection signal="body_entered" from="." to="." method="weapon_entered"]

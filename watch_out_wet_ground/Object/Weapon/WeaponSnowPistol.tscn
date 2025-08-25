@@ -6,11 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_308uy"]
 radius = 7.0
 
-[node name="SnowPistol" type="Area2D"]
+[node name="SnowPistol" type="Area2D" groups=["Weapon"]]
 collision_mask = 3
 script = ExtResource("1_co3jw")
-is_picked = null
-shoot_momentum = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 1)
@@ -24,5 +22,3 @@ texture = ExtResource("2_v2voq")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(9, 0)
-
-[connection signal="body_entered" from="." to="." method="area_triggered"]

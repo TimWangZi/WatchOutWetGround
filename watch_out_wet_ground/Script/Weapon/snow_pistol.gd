@@ -4,9 +4,7 @@ extends Area2D
 var owner_name = ""
 const Bullet = preload("res://Object/Weapon/Bullet.tscn")
 var is_picked = false
-var player_entered = false
-func _ready():
-	pass
+	
 
 func _process(delta):
 	if is_picked:
@@ -22,18 +20,10 @@ func _process(delta):
 			bullet_node.owner_name = owner_name
 			get_tree().root.add_child(bullet_node)
 			#a = false
-		
-
-func area_triggered(body):
-	print(body.name," Entered the Snow Pistols‘ trigger area")
-	if body.is_in_group("Player"):
-		player_entered = true
-		
-		#if Input.is_action_pressed("player_pick_up"):
-			#body.pick_up_weapon(self)
-			#print("player " ,body.name ," picked snowball pistol")
-
-func area_leave(body):
-	print(body.name," Leave the Snow Pistols‘ trigger area")
-	if body.is_in_group("Player"):
-		player_entered = false		
+func pick_up(parent:Node ,parent_name ,scale = 1.2):
+	call_deferred("reparent" ,parent ,false)
+	scale = Vector2(scale ,scale)
+	position = Vector2.ZERO
+	is_picked = true
+	get_node("CollisionShape2D").set_deferred("disabled" ,true)
+	owner_name = parent_name

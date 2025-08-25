@@ -16,7 +16,5 @@ position = Vector2(36, 40)
 
 [node name="WeaponSnowPistol" parent="." instance=ExtResource("3_j7m7d")]
 position = Vector2(103, 86)
-is_picked = null
-shoot_momentum = null
 
 [node name="Bot" parent="." instance=ExtResource("4_ta6on")]
