@@ -8,13 +8,13 @@ func _physics_process(delta):
 	position += bullet_velocity * delta
 
 func _ready():
-	pass
-	#$AnimatedSprite2D.play("default")
-	#await get_tree().create_timer(lifetime)
-	#$CollisionShape2D.set_deferred("disabled" ,true)
-	#$AnimatedSprite2D.play("mealt")
-	#await $AnimatedSprite2D.animation_finished
-	#queue_free()
+	$AnimatedSprite2D.play("default")
+	await get_tree().create_timer(lifetime).timeout
+	$CollisionShape2D.set_deferred("disabled" ,true)
+	bullet_velocity = bullet_velocity / 10
+	$AnimatedSprite2D.play("mealt")
+	await $AnimatedSprite2D.animation_finished
+	queue_free()
 
 func on_hit_player(body):
 	if body.name != owner_name:

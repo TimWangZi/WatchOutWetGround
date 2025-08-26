@@ -12,16 +12,22 @@ script = ExtResource("1_co3jw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(4, 1)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_308uy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(5, 1)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_v2voq")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(9, 0)
+position = Vector2(27, -3)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="find_player"]
 [connection signal="body_exited" from="." to="." method="lost_player"]
+[connection signal="timeout" from="Timer" to="." method="time_up"]

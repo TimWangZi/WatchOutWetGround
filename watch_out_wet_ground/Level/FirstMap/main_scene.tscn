@@ -9,12 +9,14 @@
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(217, 182)
+scale = Vector2(7.435, 7.435)
 texture = ExtResource("2_j7m7d")
 
 [node name="Player" parent="." instance=ExtResource("1_f46yf")]
 position = Vector2(36, 40)
 
 [node name="WeaponSnowPistol" parent="." instance=ExtResource("3_j7m7d")]
-position = Vector2(103, 86)
+position = Vector2(212, 51)
 
 [node name="Bot" parent="." instance=ExtResource("4_ta6on")]
+position = Vector2(420, 45)
