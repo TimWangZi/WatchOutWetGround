@@ -8,7 +8,7 @@
 [node name="MainScene" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(217, 182)
+position = Vector2(191, 183)
 scale = Vector2(7.435, 7.435)
 texture = ExtResource("2_j7m7d")
 
